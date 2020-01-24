@@ -1,0 +1,42 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.arifudesu.mvvmrestapi.view.main.MainVM" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/main_layout_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:onRefreshListener="@{() -> viewModel.onRefresh(viewModel.year, viewModel.name)}"
+            app:refreshing="@{viewModel.showProgress}">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_fragment_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:dataList="@{viewModel.dataListLive}" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{viewModel.showProgress ? View.VISIBLE : View.GONE}" />
+
+    </RelativeLayout>
+</layout>

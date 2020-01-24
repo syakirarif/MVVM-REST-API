@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Catatanime</string>
+    <string name="lorem_ipsum" translatable="false">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin
+        \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur ipsum in placerat molestie.  Fusce quis mauris a enim sollicitudin
+    </string>
+    <string name="lorem_ipsum_only" translatable="false">Lorem ipsum</string>
+</resources>
