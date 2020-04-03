@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.data_source
+package com.arifudesu.mvvmrestapi.data_source.season
 
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
 
@@ -60,8 +60,13 @@ class AnimeSeasonRepository(
 
         @JvmStatic
         fun getInstance(remoteDataSource: AnimeSeasonDS, localDataSource: AnimeSeasonDS) =
-            INSTANCE ?: synchronized(AnimeSeasonRepository::class.java) {
-                INSTANCE ?: AnimeSeasonRepository(remoteDataSource, localDataSource)
+            INSTANCE
+                ?: synchronized(AnimeSeasonRepository::class.java) {
+                INSTANCE
+                    ?: AnimeSeasonRepository(
+                        remoteDataSource,
+                        localDataSource
+                    )
                     .also { INSTANCE = it }
             }
 

@@ -7,8 +7,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-@Entity(tableName = "tb_anime")
-data class AnimeEntry(
+@Entity(tableName = "tb_favorite")
+data class AnimeFavorite(
 
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
@@ -77,8 +77,5 @@ data class AnimeEntry(
 
     @ColumnInfo(name = "continuing")
     @SerializedName("continuing")
-    val continuing: Boolean? = false,
-
-    @ColumnInfo(name = "isFavorite")
-    val isFavorite: Boolean? = false
+    val continuing: Boolean? = false
 )

@@ -1,11 +1,10 @@
 package com.arifudesu.mvvmrestapi.view.main
 
 import android.app.Application
-import androidx.databinding.ObservableField
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.arifudesu.mvvmrestapi.data_source.AnimeSeasonDS
-import com.arifudesu.mvvmrestapi.data_source.AnimeSeasonRepository
+import com.arifudesu.mvvmrestapi.data_source.season.AnimeSeasonDS
+import com.arifudesu.mvvmrestapi.data_source.season.AnimeSeasonRepository
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
 import com.arifudesu.mvvmrestapi.util.SingleLiveEvent
 
@@ -60,6 +59,10 @@ class MainVM(
 
             }
         )
+    }
+
+    fun progressStatus(): Boolean {
+        return showProgress.value != false
     }
 
 }

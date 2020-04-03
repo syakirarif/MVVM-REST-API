@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.data_source
+package com.arifudesu.mvvmrestapi.data_source.season
 
 import androidx.annotation.VisibleForTesting
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
@@ -17,6 +17,7 @@ class AnimeSeasonLDS private constructor(
     ) {
         appExecutors.diskIO.execute {
             val getDao = dataDao.getEntry()
+//            val getFavorite = dataDao.getEntryFavorite()
 
             appExecutors.mainThread.execute {
                 if (getDao.equals(null)) {
@@ -44,7 +45,11 @@ class AnimeSeasonLDS private constructor(
         fun getInstance(appExecutors: AppExecutors, dataDao: AnimeDao): AnimeSeasonLDS {
             if (INSTANCE == null) {
                 synchronized(AnimeSeasonLDS::javaClass) {
-                    INSTANCE = AnimeSeasonLDS(appExecutors, dataDao)
+                    INSTANCE =
+                        AnimeSeasonLDS(
+                            appExecutors,
+                            dataDao
+                        )
                 }
             }
             return INSTANCE!!

@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
+import com.arifudesu.mvvmrestapi.view.favorite.FavoriteVMF
 import com.arifudesu.mvvmrestapi.view.main.MainVMF
 import java.lang.Exception
 
@@ -49,4 +50,11 @@ fun <T : ViewModel>
     ViewModelProviders.of(
         this,
         MainVMF.getInstance(application)
+    ).get(viewModelClass)
+
+fun <T : ViewModel>
+        AppCompatActivity.obtainFavoriteViewModel(viewModelClass: Class<T>) =
+    ViewModelProviders.of(
+        this,
+        FavoriteVMF.getInstance(application)
     ).get(viewModelClass)

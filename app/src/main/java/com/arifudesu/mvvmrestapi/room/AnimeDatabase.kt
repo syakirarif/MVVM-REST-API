@@ -6,11 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
+import com.arifudesu.mvvmrestapi.model.AnimeFavorite
 import com.arifudesu.mvvmrestapi.util.DataConverter
 
 @Database(
     entities = [
-        AnimeEntry::class
+        AnimeEntry::class,
+        AnimeFavorite::class
     ],
     version = 1,
     exportSchema = false
@@ -36,7 +38,7 @@ abstract class AnimeDatabase : RoomDatabase() {
             Room.databaseBuilder(
                 context.applicationContext,
                 AnimeDatabase::class.java,
-                "sidago.db"
+                "catatanime.db"
             )
                 .allowMainThreadQueries()
                 .build()

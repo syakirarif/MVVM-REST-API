@@ -1,24 +1,25 @@
-package com.arifudesu.mvvmrestapi.view.main
+package com.arifudesu.mvvmrestapi.view.favorite
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.arifudesu.mvvmrestapi.R
 import com.arifudesu.mvvmrestapi.databinding.ItemMain2Binding
-import com.arifudesu.mvvmrestapi.model.AnimeEntry
 import com.arifudesu.mvvmrestapi.model.AnimeFavorite
-import com.arifudesu.mvvmrestapi.view.favorite.FavoriteVM
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import io.paperdb.Paper
 import kotlinx.android.synthetic.main.item_main2.view.*
 
-class MainAdapter(
-    var mList: List<AnimeEntry>,
-    val viewModel: FavoriteVM
+class FavoriteAdapter(
+    var mList: LiveData<List<AnimeFavorite>>,
+    var viewModel: FavoriteVM
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -36,16 +37,16 @@ class MainAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        (holder as MainHolder).bind(mList[position], viewModel)
+        (holder as MainHolder).bind(mList.value!![position], viewModel)
     }
 
 
     override fun getItemCount(): Int {
-        return mList.size
+        return mList.value!!.size
     }
 
 
-    fun replaceData(data: List<AnimeEntry>) {
+    fun replaceData(data: LiveData<List<AnimeFavorite>>) {
         mList = data
         notifyDataSetChanged()
     }
@@ -57,7 +58,7 @@ class MainAdapter(
         val view = binding.root
 
 
-        fun bind(data: AnimeEntry, viewModel: FavoriteVM) {
+        fun bind(data: AnimeFavorite, viewModel: FavoriteVM) {
 
             var isFavorite = !viewModel.isThisAnimeFavorite(data.malId.toString()).equals("")
 
@@ -71,40 +72,19 @@ class MainAdapter(
 
                 btn_item_main_fav_top.setOnClickListener {
                     if (!isFavorite) {
-//                        isFavorite = true
-                        viewModel.saveAnimeFavorite(AnimeFavorite(
-                            data.id,
-                            data.malId,
-                            data.url,
-                            data.title,
-                            data.imageUrl,
-                            data.synopsis,
-                            data.type,
-                            data.airingStart,
-                            data.episodes,
-                            data.members,
-                            data.genres,
-                            data.source,
-                            data.producers,
-                            data.score,
-                            data.r18,
-                            data.kids,
-                            true
-                        ))
                         btn_item_main_fav_top.setBackgroundResource(R.drawable.ic_favorite)
                         btn_item_main_fav_top.setColorFilter(ContextCompat.getColor(context, R.color.red_A700), android.graphics.PorterDuff.Mode.MULTIPLY)
                     } else {
-//                        isFavorite = false
-                        viewModel.deleteAnimeFavorite(data.malId.toString())
+                        isFavorite = false
                         btn_item_main_fav_top.setBackgroundResource(R.drawable.ic_favorite_border)
                         btn_item_main_fav_top.setColorFilter(ContextCompat.getColor(context, R.color.white), android.graphics.PorterDuff.Mode.MULTIPLY)
                     }
 
                 }
 
-//                lyt_parent.setOnClickListener {
-//                    Toast.makeText(context, "${data.title}", Toast.LENGTH_SHORT).show()
-//                }
+                lyt_parent.setOnClickListener {
+                    Toast.makeText(context, "${data.title}", Toast.LENGTH_SHORT).show()
+                }
 
                 Glide.with(context)
                     .load(data.imageUrl)
