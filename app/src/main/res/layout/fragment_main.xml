@@ -28,7 +28,8 @@
                 android:id="@+id/rv_fragment_main"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:dataList="@{viewModel.dataListLive}" />
+                app:dataList="@{viewModel.dataListLive}"
+                tools:listitem="@layout/item_main"/>
 
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

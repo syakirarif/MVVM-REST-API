@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.arifudesu.mvvmrestapi.databinding.FragmentMainBinding
 import com.arifudesu.mvvmrestapi.util.isNetworkAvailable
+import com.arifudesu.mvvmrestapi.view.dashboard.DashboardActivity
 import kotlinx.android.synthetic.main.fragment_main.view.*
 
 
@@ -29,7 +30,7 @@ class MainFragment : Fragment() {
         viewBinding = FragmentMainBinding.inflate(
             inflater, container, false
         ).apply {
-            viewModel = (activity as MainActivity).obtainViewModel()
+            viewModel = (activity as DashboardActivity).obtainViewModel()
         }
 
         viewBinding.let {

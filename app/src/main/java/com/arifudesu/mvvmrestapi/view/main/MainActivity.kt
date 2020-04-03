@@ -1,30 +1,33 @@
 package com.arifudesu.mvvmrestapi.view.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.arifudesu.mvvmrestapi.R
-import com.arifudesu.mvvmrestapi.model.AnimeEntry
-import com.arifudesu.mvvmrestapi.util.replaceFragmentInActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.arifudesu.mvvmrestapi.databinding.ActivityMainBinding
+import com.arifudesu.mvvmrestapi.model.AnimeEntry
 import com.arifudesu.mvvmrestapi.util.obtainMainViewModel
+import com.arifudesu.mvvmrestapi.util.replaceFragmentInActivity
 
 class MainActivity : AppCompatActivity(), MainUAL {
 
     private lateinit var viewModel: MainVM
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+
+        setContentView(binding.root)
 
         setupFragment()
         setupViewModel()
     }
 
     private fun setupFragment() {
-        supportFragmentManager.findFragmentById(R.id.frameMain)
+        supportFragmentManager.findFragmentById(binding.frameMain.id)
 
-        replaceFragmentInActivity(MainFragment.newInstance(), R.id.frameMain)
+        replaceFragmentInActivity(MainFragment.newInstance(), binding.frameMain.id)
     }
 
     private fun setupViewModel() {
