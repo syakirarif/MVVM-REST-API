@@ -4,10 +4,12 @@ import android.app.Application
 import androidx.databinding.ObservableField
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import com.arifudesu.mvvmrestapi.R
 import com.arifudesu.mvvmrestapi.data_source.AnimeSeasonDS
 import com.arifudesu.mvvmrestapi.data_source.AnimeSeasonRepository
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
 import com.arifudesu.mvvmrestapi.util.SingleLiveEvent
+import com.orhanobut.hawk.Hawk
 
 
 class MainVM(
@@ -22,10 +24,11 @@ class MainVM(
 
 //    val isLoading = ObservableField(true)
 
-    var year: String = ""
-    var name: String = ""
+    var year: String? = context.getString(R.string.CURRENT_YEAR)
+    var name: String? = context.getString(R.string.CURRENT_SEASON)
 
     fun start(seasonYear: String, seasonName: String, isRefresh: Boolean) {
+        showProgress.value = true
         year = seasonYear
         name = seasonName
         getData(seasonYear, seasonName, isRefresh)
@@ -38,7 +41,7 @@ class MainVM(
     }
 
     private fun getData(seasonYear: String, seasonName: String, isRefresh: Boolean = false) {
-        showProgress.value = true
+//        showProgress.value = true
 
         repository.getAnimeSeason(
             seasonYear,
@@ -48,6 +51,7 @@ class MainVM(
                 override fun onLoaded(entry: List<AnimeEntry>) {
                     dataListLive.postValue(entry)
                     showProgress.value = false
+                    Hawk.put("IS_MAIN_NEED_REFRESH", false)
                 }
 
                 override fun onError(errorMessage: String?) {

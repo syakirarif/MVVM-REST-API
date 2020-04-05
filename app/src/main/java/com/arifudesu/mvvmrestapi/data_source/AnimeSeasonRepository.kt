@@ -1,5 +1,6 @@
 package com.arifudesu.mvvmrestapi.data_source
 
+import android.util.Log
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
 
 class AnimeSeasonRepository(
@@ -12,14 +13,24 @@ class AnimeSeasonRepository(
         isRefresh: Boolean,
         callback: AnimeSeasonDS.GetCallback
     ) {
-        if (!isRefresh)
+
+        val kosong: Boolean = localDataSource.getAnimeSeason(
+            seasonYear = seasonYear,
+            seasonName = seasonName,
+            callback = callback
+        ).equals(null)
+
+        if (isRefresh) {
+            getRemoteDataSource(seasonYear, seasonName, isRefresh, callback)
+            Log.e("AnimeSeasonRepository", "isRefresh: ${isRefresh}, getRemoteDataSource()")
+        } else {
             localDataSource.getAnimeSeason(
                 seasonYear = seasonYear,
                 seasonName = seasonName,
                 callback = callback
             )
-
-        getRemoteDataSource(seasonYear, seasonName, isRefresh, callback)
+            Log.e("AnimeSeasonRepository", "isRefresh: ${isRefresh}, getLocalDataSource()")
+        }
     }
 
     override fun saveAnimeSeason(entry: List<AnimeEntry>) {

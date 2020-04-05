@@ -16,46 +16,84 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="300dp"
+        android:onClick="@{() -> action.onClickItem(datas)}">
 
-        <androidx.cardview.widget.CardView
+        <com.balysv.materialripple.MaterialRippleLayout
+            android:id="@+id/lyt_parent"
+            style="@style/RippleStyleBlack"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{() -> action.onClickItem(datas)}"
-            app:cardCornerRadius="6dp"
-            app:cardElevation="3dp"
-            app:cardUseCompatPadding="true">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:orientation="vertical"
-                tools:ignore="UseCompoundDrawables">
+                android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/img_item_main"
-                    android:layout_width="match_parent"
-                    android:layout_height="180dp"
-                    android:contentDescription="image"
-                    app:imageUrl="@{datas.imageUrl}" />
-
-                <TextView
-                    android:id="@+id/tv_item_main"
+                    android:id="@+id/img_item_main_poster"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="@{datas.title}"
-                    android:lines="3"
-                    android:maxLines="3"
-                    android:textSize="16sp"
-                    tools:text="@string/lorem_ipsum_only" />
+                    android:foreground="@color/overlay_dark_10"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{datas.imageUrl}" />
 
-            </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/overlay_dark_40"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/spacing_large">
 
-        </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/tv_item_main_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:lines="3"
+                        android:maxLines="3"
+                        android:text="@{datas.title}"
+                        tools:text="@string/lorem_ipsum"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white" />
+
+                    <View
+                        android:layout_width="@dimen/spacing_large"
+                        android:layout_height="0dp"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:id="@+id/btn_item_main_fav"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:clickable="true"
+                        android:visibility="gone"
+                        android:src="@drawable/ic_favorite_border"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white"
+                        android:tint="@android:color/white" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </com.balysv.materialripple.MaterialRippleLayout>
+
+        <ImageView
+            android:id="@+id/btn_item_main_fav_top"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:clickable="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/ic_favorite_border" />
 
     </RelativeLayout>
-
 
 </layout>

@@ -3,23 +3,21 @@ package com.arifudesu.mvvmrestapi.view.dashboard
 import android.os.Bundle
 import android.view.Menu
 import android.widget.Toast
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import com.google.android.material.navigation.NavigationView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.Observer
 import com.arifudesu.mvvmrestapi.R
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
 import com.arifudesu.mvvmrestapi.util.obtainMainViewModel
 import com.arifudesu.mvvmrestapi.view.main.MainUAL
 import com.arifudesu.mvvmrestapi.view.main.MainVM
+import com.google.android.material.navigation.NavigationView
 
 class DashboardActivity : AppCompatActivity(), MainUAL {
 
