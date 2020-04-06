@@ -1,9 +1,12 @@
 package com.arifudesu.mvvmrestapi.util
 
 import android.content.Context
-import com.arifudesu.mvvmrestapi.data_source.AnimeSeasonLDS
-import com.arifudesu.mvvmrestapi.data_source.AnimeSeasonRDS
-import com.arifudesu.mvvmrestapi.data_source.AnimeSeasonRepository
+import com.arifudesu.mvvmrestapi.data_source.season.AnimeSeasonLDS
+import com.arifudesu.mvvmrestapi.data_source.season.AnimeSeasonRDS
+import com.arifudesu.mvvmrestapi.data_source.season.AnimeSeasonRepository
+import com.arifudesu.mvvmrestapi.data_source.top.AnimeTopLDS
+import com.arifudesu.mvvmrestapi.data_source.top.AnimeTopRDS
+import com.arifudesu.mvvmrestapi.data_source.top.AnimeTopRepository
 import com.arifudesu.mvvmrestapi.room.AnimeDatabase
 import com.arifudesu.mvvmrestapi.util.dbhelper.AppExecutors
 
@@ -15,6 +18,15 @@ object Injection {
         return AnimeSeasonRepository.getInstance(
             AnimeSeasonRDS,
             AnimeSeasonLDS.getInstance(AppExecutors(), localDatabase.animeDao())
+        )
+    }
+
+    fun provideAnimeTopRepository(context: Context): AnimeTopRepository {
+        val localDatabase = AnimeDatabase.invoke(context)
+
+        return AnimeTopRepository.getInstance(
+            AnimeTopRDS,
+            AnimeTopLDS.getInstance(AppExecutors(), localDatabase.animeDao())
         )
     }
 }

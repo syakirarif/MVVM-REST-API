@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.arifudesu.mvvmrestapi.data_source.AnimeSeasonRepository
+import com.arifudesu.mvvmrestapi.data_source.season.AnimeSeasonRepository
 import com.arifudesu.mvvmrestapi.util.Injection
 
 class MainVMF(

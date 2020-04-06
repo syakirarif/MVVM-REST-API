@@ -14,10 +14,14 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.arifudesu.mvvmrestapi.R
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
+import com.arifudesu.mvvmrestapi.util.obtainAnimeTopViewModel
 import com.arifudesu.mvvmrestapi.util.obtainMainViewModel
+import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.airing.AnimeTopAiringVM
+import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.upcoming.AnimeTopUpcomingVM
 import com.arifudesu.mvvmrestapi.view.main.MainUAL
 import com.arifudesu.mvvmrestapi.view.main.MainVM
 import com.google.android.material.navigation.NavigationView
+import com.orhanobut.hawk.Hawk
 
 class DashboardActivity : AppCompatActivity(), MainUAL {
 
@@ -30,6 +34,8 @@ class DashboardActivity : AppCompatActivity(), MainUAL {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        Hawk.init(this).build()
+
         setupViewModel()
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
@@ -39,8 +45,8 @@ class DashboardActivity : AppCompatActivity(), MainUAL {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_main
-            ), drawerLayout
+                R.id.nav_top_main, R.id.nav_main, R.id.nav_top, R.id.nav_top_upcoming
+                ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -58,6 +64,12 @@ class DashboardActivity : AppCompatActivity(), MainUAL {
     }
 
     fun obtainViewModel(): MainVM = obtainMainViewModel(MainVM::class.java)
+
+    fun obtainsAnimeTopVM(): AnimeTopAiringVM = obtainAnimeTopViewModel(
+        AnimeTopAiringVM::class.java)
+
+    fun obtainsAnimeTopUpcomingVM(): AnimeTopUpcomingVM = obtainAnimeTopViewModel(
+        AnimeTopUpcomingVM::class.java)
 
     private fun setupViewModel() {
         viewModel = obtainViewModel().apply {

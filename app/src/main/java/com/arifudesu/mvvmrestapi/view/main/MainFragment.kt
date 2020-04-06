@@ -79,11 +79,11 @@ class MainFragment : Fragment() {
         spSeason = viewBinding.spSeason
         spSeason.setAdapter(MaterialSpinnerAdapter(requireActivity(), LIST_SEASON))
 
-        spYear.setOnItemSelectedListener { view, position, id, item ->
+        spYear.setOnItemSelectedListener { _, _, _, _ ->
             retrieveData(true)
         }
 
-        spSeason.setOnItemSelectedListener { view, position, id, item ->
+        spSeason.setOnItemSelectedListener { _, _, _, _ ->
             retrieveData(true)
         }
 
@@ -109,7 +109,7 @@ class MainFragment : Fragment() {
         super.onResume()
 
 //        val doneBefore: Boolean = Hawk.contains("GET_LIST_DONE")
-        val isRefresh = Hawk.contains("IS_MAIN_NEED_REFRESH") ?: true
+//        val isRefresh = Hawk.contains("IS_MAIN_NEED_REFRESH") ?: true
         var needRefresh = true
 
         if (Hawk.contains("IS_MAIN_NEED_REFRESH"))

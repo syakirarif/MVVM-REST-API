@@ -25,7 +25,7 @@ class MainAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val datas = mList[position]
+//        val datas = mList[position]
 
         val actionListener = object : MainUAL {
             override fun onClickItem(entry: AnimeEntry) {

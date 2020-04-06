@@ -6,11 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
+import com.arifudesu.mvvmrestapi.model.AnimeTopEntry
+import com.arifudesu.mvvmrestapi.model.AnimeTopUpcomingEntry
 import com.arifudesu.mvvmrestapi.util.DataConverter
 
 @Database(
     entities = [
-        AnimeEntry::class
+        AnimeEntry::class,
+        AnimeTopEntry::class,
+        AnimeTopUpcomingEntry::class
     ],
     version = 1,
     exportSchema = false

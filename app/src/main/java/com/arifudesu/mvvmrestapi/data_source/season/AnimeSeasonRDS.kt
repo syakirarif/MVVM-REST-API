@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.data_source
+package com.arifudesu.mvvmrestapi.data_source.season
 
 import android.annotation.SuppressLint
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
@@ -6,7 +6,8 @@ import com.arifudesu.mvvmrestapi.service.AnimeApiService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-object AnimeSeasonRDS : AnimeSeasonDS {
+object AnimeSeasonRDS :
+    AnimeSeasonDS {
 
     private val apiService: AnimeApiService by lazy {
         AnimeApiService.getAnimeApiService

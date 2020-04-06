@@ -1,0 +1,71 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="datas"
+            type="com.arifudesu.mvvmrestapi.model.AnimeTopUpcomingEntry" />
+
+        <variable
+            name="action"
+            type="com.arifudesu.mvvmrestapi.view.dashboard.ui.top.AnimeTopUAL" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> action.onClickItemUpcoming(datas)}"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="3dp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_item_anime_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:contentDescription="just image"
+                    app:imageUrl="@{datas.imageUrl}" />
+
+                <TextView
+                    android:id="@+id/tv_item_anime_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    android:text="@{datas.title}"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    tools:text="@string/lorem_ipsum" />
+
+                <TextView
+                    android:id="@+id/tv2_item_anime_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:lines="2"
+                    android:text="@{datas.members.toString()}"
+                    android:textColor="@android:color/black"
+                    android:textSize="12sp"
+                    tools:text="@string/lorem_ipsum" />
+
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+</layout>
