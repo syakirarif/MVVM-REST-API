@@ -19,9 +19,12 @@
 
     <string name="home_second">Home Second</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_top">Top</string>
     <string name="menu_top_home">Top Main</string>
-    <string name="season_anime">Season Anime</string>
+    <string name="title_season_anime">Seasonal Anime</string>
+    <string name="title_top_anime">Top Anime</string>
+    <string name="title_top_anime_airing">Airing</string>
+    <string name="title_top_anime_upcoming">Upcoming</string>
+    <string name="main_nav_footer"><![CDATA[</> with \u2665by Kansha Arifu]]></string>
 </resources>

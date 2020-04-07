@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.arifudesu.mvvmrestapi.R
 import com.arifudesu.mvvmrestapi.databinding.FragmentMainBinding
 import com.arifudesu.mvvmrestapi.util.isNetworkAvailable
 import com.arifudesu.mvvmrestapi.view.dashboard.DashboardActivity
@@ -50,6 +51,8 @@ class MainFragment : Fragment() {
     private var selectedYear: String = "2020"
     private var selectedSeason: String = "spring"
 
+    private lateinit var itemString: String
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -71,7 +74,8 @@ class MainFragment : Fragment() {
             layoutManager = GridLayoutManager(this@MainFragment.context, 2)
         }
 
-        Hawk.init(viewBinding.root.context).build()
+//        Hawk.init(viewBinding.root.context).build()
+        itemString = getString(R.string.title_season_anime)
 
         refreshEntry = viewBinding.mainLayoutRefresh
         spYear = viewBinding.spYear
@@ -94,6 +98,12 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         setupViewModel()
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        Hawk.put("PREV_FRAGMENT", itemString)
     }
 
     private fun setupViewModel() {
@@ -128,6 +138,8 @@ class MainFragment : Fragment() {
 
         viewBinding.viewModel?.start(selectedYear, selectedSeason, needRefresh)
     }
+
+
 
     companion object {
         fun newInstance() = MainFragment().apply {

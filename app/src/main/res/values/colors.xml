@@ -10,4 +10,6 @@
     <color name="white">#ffffff</color>
 
     <color name="red_A700">#D50000</color>
+
+    <color name="colorGrayLight">#9f9f9f</color>
 </resources>

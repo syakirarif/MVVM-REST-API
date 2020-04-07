@@ -7,4 +7,15 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="spacing_large">15dp</dimen>
+
+    <!--NAVIGATION-->
+    <dimen name="nav_header_userprofil_height">60sp</dimen>
+    <dimen name="nav_header_username_textsize">20sp</dimen>
+    <dimen name="nav_header_job_textsize">14sp</dimen>
+    <dimen name="nav_menu_height">50dp</dimen>
+    <dimen name="nav_menu_margin_left">20dp</dimen>
+    <dimen name="nav_menu_icon_height">20dp</dimen>
+    <dimen name="nav_menu_title_textsize">14sp</dimen>
+    <dimen name="nav_submenu_title_textsize">12sp</dimen>
+    <dimen name="nav_submenu_title_margin_left">60dp</dimen>
 </resources>

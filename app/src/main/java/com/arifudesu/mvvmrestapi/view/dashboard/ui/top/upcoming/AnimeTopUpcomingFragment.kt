@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.arifudesu.mvvmrestapi.R
 import com.arifudesu.mvvmrestapi.databinding.FragmentAnimeTopUpcomingBinding
 import com.arifudesu.mvvmrestapi.view.dashboard.DashboardActivity
+import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.airing.AnimeTopAiringFragment
 import com.orhanobut.hawk.Hawk
 
 /**
@@ -17,6 +19,8 @@ class AnimeTopUpcomingFragment : Fragment() {
 
     private lateinit var adapter: AnimeTopUpcomingAdapter
     private lateinit var viewBinding: FragmentAnimeTopUpcomingBinding
+
+    private lateinit var itemString: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,8 +42,15 @@ class AnimeTopUpcomingFragment : Fragment() {
             layoutManager = GridLayoutManager(this@AnimeTopUpcomingFragment.context, 2)
         }
 
+        itemString = getString(R.string.title_top_anime_upcoming)
 
         return viewBinding.root
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        Hawk.put("PREV_FRAGMENT", itemString)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -73,6 +84,13 @@ class AnimeTopUpcomingFragment : Fragment() {
             needRefresh = Hawk.get("IS_TOP_UPCOMING_NEED_REFRESH")
 
         viewBinding.viewModel?.start("anime", "1", "upcoming", needRefresh)
+    }
+
+    companion object {
+        fun newInstance() = AnimeTopAiringFragment().apply {
+
+        }
+
     }
 
 }

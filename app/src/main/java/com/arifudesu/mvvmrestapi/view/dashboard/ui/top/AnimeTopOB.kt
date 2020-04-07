@@ -17,8 +17,8 @@ object AnimeTopOB {
     @JvmStatic
     fun setDataList(recyclerView: RecyclerView, list: List<AnimeTopEntry>?) {
         try {
-            with(recyclerView.adapter as AnimeTopAiringAdapter) {
-                if (list != null) {
+            if (list != null) {
+                with(recyclerView.adapter as AnimeTopAiringAdapter) {
                     replaceData(list)
                 }
             }
@@ -31,8 +31,8 @@ object AnimeTopOB {
     @JvmStatic
     fun setDataListUpcoming(recyclerView: RecyclerView, list: List<AnimeTopUpcomingEntry>?) {
         try {
-            with(recyclerView.adapter as AnimeTopUpcomingAdapter) {
-                if (list != null) {
+            if (list != null) {
+                with(recyclerView.adapter as AnimeTopUpcomingAdapter) {
                     replaceData(list)
                 }
             }
