@@ -2,6 +2,7 @@ package com.arifudesu.mvvmrestapi.view.main
 
 import android.view.ViewGroup
 import android.view.LayoutInflater
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.arifudesu.mvvmrestapi.databinding.ItemMainBinding
@@ -12,6 +13,8 @@ class MainAdapter(
     var mList: List<AnimeEntry>,
     val mViewModel: MainVM
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+//    private val viewModel: MainVM = mViewModel
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding: ItemMainBinding = DataBindingUtil.inflate(
@@ -30,10 +33,19 @@ class MainAdapter(
         val actionListener = object : MainUAL {
             override fun onClickItem(entry: AnimeEntry) {
                 mViewModel.openData.value = entry
+//                Toast.makeText(holder.itemView.context, "${entry.title}", Toast.LENGTH_SHORT).show()
+//                mViewModel.insertAnimeFavorite(entry)
             }
-//            override fun onProdiClicked(entry: FakultasProdiEntry) {
-//                mViewModel.openData.value = entry
-//            }
+
+            override fun onClickFavorite(entry: AnimeEntry) {
+                mViewModel.openFavorite.value = entry
+//                Toast.makeText(
+//                    holder.itemView.context,
+//                    "Favorite ${entry.malId}",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+
+            }
         }
 
         (holder as MainHolder).bind(mList[position], actionListener)

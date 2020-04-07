@@ -1,6 +1,7 @@
 package com.arifudesu.mvvmrestapi.view.dashboard.ui.top
 
 import android.widget.ImageView
+import androidx.annotation.Nullable
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.arifudesu.mvvmrestapi.model.AnimeTopEntry
@@ -14,6 +15,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 object AnimeTopOB {
 
     @BindingAdapter("app:dataList")
+    @Nullable
     @JvmStatic
     fun setDataList(recyclerView: RecyclerView, list: List<AnimeTopEntry>?) {
         try {
@@ -28,6 +30,7 @@ object AnimeTopOB {
     }
 
     @BindingAdapter("app:dataListUpcoming")
+    @Nullable
     @JvmStatic
     fun setDataListUpcoming(recyclerView: RecyclerView, list: List<AnimeTopUpcomingEntry>?) {
         try {
@@ -43,8 +46,9 @@ object AnimeTopOB {
 
 
     @BindingAdapter("app:imageUrl")
+    @Nullable
     @JvmStatic
-    fun setImageUrl(view: ImageView, imageUrl: String?) {
+    fun setImageUrl(view: ImageView, imageUrl: String) {
         Glide.with(view.context)
             .load(imageUrl)
             .transition(

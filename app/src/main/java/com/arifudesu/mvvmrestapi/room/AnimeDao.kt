@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
+import com.arifudesu.mvvmrestapi.model.AnimeFavoriteEntry
 import com.arifudesu.mvvmrestapi.model.AnimeTopEntry
 import com.arifudesu.mvvmrestapi.model.AnimeTopUpcomingEntry
 
@@ -50,5 +51,23 @@ interface AnimeDao {
 
     @Query("DELETE FROM tb_anime_top_upcoming")
     fun clearTableAnimeTopUpcoming()
+
+    //-------------------------------------------
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAnimeFavorite(entry: AnimeFavoriteEntry)
+
+    @Query("SELECT * FROM tb_anime_favorite")
+    fun getAnimeFavorite(): List<AnimeFavoriteEntry>
+
+    @Query("SELECT COUNT(id) FROM tb_anime_favorite")
+    fun countAnimeFavorite(): Int
+
+    @Query("DELETE FROM tb_anime_favorite")
+    fun clearTableAnimeFavorite()
+
+    @Query("DELETE FROM tb_anime_favorite WHERE malId = :malId")
+    fun removeAnimeFavorite(malId: String)
+
 
 }

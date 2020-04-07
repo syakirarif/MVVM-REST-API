@@ -41,6 +41,10 @@ class MainActivity : AppCompatActivity(), MainUAL {
     fun obtainViewModel(): MainVM = obtainMainViewModel(MainVM::class.java)
 
     override fun onClickItem(entry: AnimeEntry) {
-        Toast.makeText(this, "${entry.title}", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "${entry.title}", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onClickFavorite(entry: AnimeEntry) {
+
     }
 }

@@ -39,4 +39,8 @@ object AnimeSeasonRDS :
     override fun saveAnimeSeason(entry: List<AnimeEntry>) {
 
     }
+
+    override fun insertAnimeFavorite(entry: AnimeEntry) {
+
+    }
 }

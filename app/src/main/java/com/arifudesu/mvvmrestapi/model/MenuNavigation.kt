@@ -18,6 +18,13 @@ object MenuNavigation {
             )
         )
         menu.add(
+            NavMenuModel(
+                context.resources.getString(R.string.title_favorite_anime),
+                R.drawable.ic_favorite,
+                R.id.nav_favorite
+            )
+        )
+        menu.add(
             NavMenuModel(context.resources.getString(R.string.title_top_anime), R.drawable.ic_anime_top_airing,
                 object : ArrayList<SubMenuModel?>() {
                     init {

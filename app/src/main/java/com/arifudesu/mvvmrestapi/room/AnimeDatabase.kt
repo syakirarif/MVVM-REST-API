@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
+import com.arifudesu.mvvmrestapi.model.AnimeFavoriteEntry
 import com.arifudesu.mvvmrestapi.model.AnimeTopEntry
 import com.arifudesu.mvvmrestapi.model.AnimeTopUpcomingEntry
 import com.arifudesu.mvvmrestapi.util.DataConverter
@@ -14,7 +15,8 @@ import com.arifudesu.mvvmrestapi.util.DataConverter
     entities = [
         AnimeEntry::class,
         AnimeTopEntry::class,
-        AnimeTopUpcomingEntry::class
+        AnimeTopUpcomingEntry::class,
+        AnimeFavoriteEntry::class
     ],
     version = 1,
     exportSchema = false

@@ -13,6 +13,8 @@ interface AnimeSeasonDS {
 
     fun saveAnimeSeason(entry: List<AnimeEntry>)
 
+    fun insertAnimeFavorite(entry: AnimeEntry)
+
     interface GetCallback {
         fun onLoaded(entry: List<AnimeEntry>)
         fun onError(errorMessage: String?)

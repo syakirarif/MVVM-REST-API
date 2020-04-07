@@ -1,7 +1,9 @@
 package com.arifudesu.mvvmrestapi.data_source.season
 
+import android.util.Log
 import androidx.annotation.VisibleForTesting
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
+import com.arifudesu.mvvmrestapi.model.AnimeFavoriteEntry
 import com.arifudesu.mvvmrestapi.room.AnimeDao
 import com.arifudesu.mvvmrestapi.util.dbhelper.AppExecutors
 
@@ -35,6 +37,21 @@ class AnimeSeasonLDS private constructor(
             dataDao.insertEntry(model)
         }
 
+    }
+
+    override fun insertAnimeFavorite(entry: AnimeEntry) {
+
+        val data = AnimeFavoriteEntry(
+            entry.id,
+            entry.malId,
+            entry.title,
+            entry.url,
+            entry.imageUrl,
+            entry.type
+        )
+
+        dataDao.insertAnimeFavorite(data)
+        Log.e("AnimeSeasonLDS", "insertAnimeFavorite => ${data}")
     }
 
     companion object {

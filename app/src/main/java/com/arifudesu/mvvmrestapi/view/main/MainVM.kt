@@ -18,6 +18,7 @@ class MainVM(
 
     val dataListLive = MutableLiveData<List<AnimeEntry>>()
     val openData = SingleLiveEvent<AnimeEntry>()
+    val openFavorite = SingleLiveEvent<AnimeEntry>()
 
     var showProgress = MutableLiveData<Boolean>()
 
@@ -63,6 +64,10 @@ class MainVM(
 
             }
         )
+    }
+
+    fun insertAnimeFavorite(entry: AnimeEntry){
+        repository.insertAnimeFavorite(entry)
     }
 
 }

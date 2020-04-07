@@ -6,29 +6,24 @@
 
         <variable
             name="datas"
-            type="com.arifudesu.mvvmrestapi.model.AnimeEntry" />
+            type="com.arifudesu.mvvmrestapi.model.AnimeFavoriteEntry" />
 
         <variable
             name="action"
-            type="com.arifudesu.mvvmrestapi.view.main.MainUAL" />
-
-        <variable
-            name="viewModelFavorite"
-            type="com.arifudesu.mvvmrestapi.view.dashboard.ui.favorite.AnimeFavoriteVM" />
-
+            type="com.arifudesu.mvvmrestapi.view.dashboard.ui.favorite.AnimeFavoriteUAL" />
 
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp">
+        android:layout_height="300dp"
+        android:onClick="@{() -> action.onClickItem(datas)}">
 
         <com.balysv.materialripple.MaterialRippleLayout
             android:id="@+id/lyt_parent"
             style="@style/RippleStyleBlack"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:onClick="@{() -> action.onClickItem(datas)}">
+            android:layout_height="match_parent">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -96,8 +91,8 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="16dp"
+            android:onClick="@{() -> action.onClickFavoriteButton(datas)}"
             android:layout_marginRight="16dp"
-            android:onClick="@{() -> action.onClickFavorite(datas)}"
             android:src="@drawable/ic_favorite_border" />
 
     </RelativeLayout>

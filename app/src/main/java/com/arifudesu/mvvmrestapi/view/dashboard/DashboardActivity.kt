@@ -27,8 +27,10 @@ import com.arifudesu.mvvmrestapi.util.navigation.NavMenuAdapter
 import com.arifudesu.mvvmrestapi.util.navigation.NavMenuModel
 import com.arifudesu.mvvmrestapi.util.navigation.SubTitle
 import com.arifudesu.mvvmrestapi.util.navigation.TitleMenu
+import com.arifudesu.mvvmrestapi.util.obtainAnimeFavoriteViewModel
 import com.arifudesu.mvvmrestapi.util.obtainAnimeTopViewModel
 import com.arifudesu.mvvmrestapi.util.obtainMainViewModel
+import com.arifudesu.mvvmrestapi.view.dashboard.ui.favorite.AnimeFavoriteVM
 import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.airing.AnimeTopAiringVM
 import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.upcoming.AnimeTopUpcomingVM
 import com.arifudesu.mvvmrestapi.view.main.MainUAL
@@ -66,7 +68,7 @@ class DashboardActivity : AppCompatActivity(), MainUAL, NavMenuAdapter.MenuItemC
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_main, R.id.nav_top, R.id.nav_top_upcoming
+                R.id.nav_main, R.id.nav_favorite, R.id.nav_top, R.id.nav_top_upcoming
             ), drawerLayout
         )
 //        appBarConfiguration = AppBarConfiguration.Builder(navController.graph).build()
@@ -89,6 +91,8 @@ class DashboardActivity : AppCompatActivity(), MainUAL, NavMenuAdapter.MenuItemC
 
     fun obtainViewModel(): MainVM = obtainMainViewModel(MainVM::class.java)
 
+    fun obtainsAnimeFavoriteVM(): AnimeFavoriteVM = obtainAnimeFavoriteViewModel(AnimeFavoriteVM::class.java)
+
     fun obtainsAnimeTopVM(): AnimeTopAiringVM = obtainAnimeTopViewModel(
         AnimeTopAiringVM::class.java
     )
@@ -102,11 +106,19 @@ class DashboardActivity : AppCompatActivity(), MainUAL, NavMenuAdapter.MenuItemC
             openData.observe(this@DashboardActivity, Observer { entry ->
                 onClickItem(entry!!)
             })
+            openFavorite.observe(this@DashboardActivity, Observer { entry ->
+                onClickFavorite(entry)
+            })
         }
     }
 
     override fun onClickItem(entry: AnimeEntry) {
         Toast.makeText(this, "${entry.title}", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onClickFavorite(entry: AnimeEntry) {
+        Toast.makeText(this, "Favorite: ${entry.malId}", Toast.LENGTH_SHORT).show()
+        viewModel.insertAnimeFavorite(entry)
     }
 
     override fun onMenuItemClick(itemString: String?) {
