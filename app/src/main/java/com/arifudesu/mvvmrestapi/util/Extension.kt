@@ -11,9 +11,9 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
-import com.arifudesu.mvvmrestapi.view.dashboard.ui.favorite.AnimeFavoriteVMF
-import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.AnimeTopVMF
-import com.arifudesu.mvvmrestapi.view.main.MainVMF
+import com.arifudesu.mvvmrestapi.view.dashboard.favorite.AnimeFavoriteVMF
+import com.arifudesu.mvvmrestapi.view.dashboard.top.AnimeTopVMF
+import com.arifudesu.mvvmrestapi.view.dashboard.main.MainVMF
 import java.lang.Exception
 
 fun isNetworkAvailable(context: Context): Boolean {

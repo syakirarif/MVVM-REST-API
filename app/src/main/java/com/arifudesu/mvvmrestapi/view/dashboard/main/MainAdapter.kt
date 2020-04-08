@@ -1,8 +1,7 @@
-package com.arifudesu.mvvmrestapi.view.main
+package com.arifudesu.mvvmrestapi.view.dashboard.main
 
 import android.view.ViewGroup
 import android.view.LayoutInflater
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.arifudesu.mvvmrestapi.databinding.ItemMainBinding

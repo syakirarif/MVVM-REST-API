@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/nav_main"
-        android:name="com.arifudesu.mvvmrestapi.view.main.MainFragment"
+        android:name="com.arifudesu.mvvmrestapi.view.dashboard.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main" />
 
     <fragment
         android:id="@+id/nav_favorite"
-        android:name="com.arifudesu.mvvmrestapi.view.dashboard.ui.favorite.AnimeFavoriteFragment"
+        android:name="com.arifudesu.mvvmrestapi.view.dashboard.favorite.AnimeFavoriteFragment"
         android:label="Favorite Anime"
         tools:layout="@layout/fragment_anime_favorite"/>
 
     <fragment
         android:id="@+id/nav_top"
-        android:name="com.arifudesu.mvvmrestapi.view.dashboard.ui.top.airing.AnimeTopAiringFragment"
+        android:name="com.arifudesu.mvvmrestapi.view.dashboard.top.airing.AnimeTopAiringFragment"
         android:label="Top Airing"
         tools:layout="@layout/fragment_anime_top_airing"/>
 
     <fragment
         android:id="@+id/nav_top_upcoming"
-        android:name="com.arifudesu.mvvmrestapi.view.dashboard.ui.top.upcoming.AnimeTopUpcomingFragment"
+        android:name="com.arifudesu.mvvmrestapi.view.dashboard.top.upcoming.AnimeTopUpcomingFragment"
         android:label="Top Upcoming"
         tools:layout="@layout/fragment_anime_top_upcoming"/>
 

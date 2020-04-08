@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.view.dashboard.ui.top.airing
+package com.arifudesu.mvvmrestapi.view.dashboard.top.airing
 
 
 import android.os.Bundle

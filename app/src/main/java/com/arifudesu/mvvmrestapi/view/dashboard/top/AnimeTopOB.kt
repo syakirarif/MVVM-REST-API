@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.view.dashboard.ui.top
+package com.arifudesu.mvvmrestapi.view.dashboard.top
 
 import android.widget.ImageView
 import androidx.annotation.Nullable
@@ -6,8 +6,8 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.arifudesu.mvvmrestapi.model.AnimeTopEntry
 import com.arifudesu.mvvmrestapi.model.AnimeTopUpcomingEntry
-import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.airing.AnimeTopAiringAdapter
-import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.upcoming.AnimeTopUpcomingAdapter
+import com.arifudesu.mvvmrestapi.view.dashboard.top.airing.AnimeTopAiringAdapter
+import com.arifudesu.mvvmrestapi.view.dashboard.top.upcoming.AnimeTopUpcomingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 

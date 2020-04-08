@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.view.dashboard.ui.top
+package com.arifudesu.mvvmrestapi.view.dashboard.top
 
 import com.arifudesu.mvvmrestapi.model.AnimeTopEntry
 import com.arifudesu.mvvmrestapi.model.AnimeTopUpcomingEntry

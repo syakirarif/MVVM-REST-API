@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.view.dashboard.ui.top.upcoming
+package com.arifudesu.mvvmrestapi.view.dashboard.top.upcoming
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

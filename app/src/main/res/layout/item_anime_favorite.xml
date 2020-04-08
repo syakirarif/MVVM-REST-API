@@ -10,7 +10,7 @@
 
         <variable
             name="action"
-            type="com.arifudesu.mvvmrestapi.view.dashboard.ui.favorite.AnimeFavoriteUAL" />
+            type="com.arifudesu.mvvmrestapi.view.dashboard.favorite.AnimeFavoriteUAL" />
 
     </data>
 

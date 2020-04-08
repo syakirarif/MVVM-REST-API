@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.arifudesu.mvvmrestapi.view.dashboard.ui.top.upcoming.AnimeTopUpcomingVM" />
+            type="com.arifudesu.mvvmrestapi.view.dashboard.top.upcoming.AnimeTopUpcomingVM" />
 
     </data>
 

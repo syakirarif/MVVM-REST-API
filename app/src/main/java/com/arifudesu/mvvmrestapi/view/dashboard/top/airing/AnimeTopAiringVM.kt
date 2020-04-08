@@ -1,8 +1,6 @@
-package com.arifudesu.mvvmrestapi.view.dashboard.ui.top.airing
+package com.arifudesu.mvvmrestapi.view.dashboard.top.airing
 
 import android.app.Application
-import androidx.databinding.ObservableList
-import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.arifudesu.mvvmrestapi.data_source.top.AnimeTopDS

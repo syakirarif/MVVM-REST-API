@@ -10,11 +10,11 @@
 
         <variable
             name="action"
-            type="com.arifudesu.mvvmrestapi.view.main.MainUAL" />
+            type="com.arifudesu.mvvmrestapi.view.dashboard.main.MainUAL" />
 
         <variable
             name="viewModelFavorite"
-            type="com.arifudesu.mvvmrestapi.view.dashboard.ui.favorite.AnimeFavoriteVM" />
+            type="com.arifudesu.mvvmrestapi.view.dashboard.favorite.AnimeFavoriteVM" />
 
 
     </data>

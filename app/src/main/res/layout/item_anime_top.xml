@@ -10,7 +10,7 @@
 
         <variable
             name="action"
-            type="com.arifudesu.mvvmrestapi.view.dashboard.ui.top.AnimeTopUAL" />
+            type="com.arifudesu.mvvmrestapi.view.dashboard.top.AnimeTopUAL" />
 
     </data>
 

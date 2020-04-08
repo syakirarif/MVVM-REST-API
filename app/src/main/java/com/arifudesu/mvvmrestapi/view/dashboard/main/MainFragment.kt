@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.view.main
+package com.arifudesu.mvvmrestapi.view.dashboard.main
 
 
 import android.os.Bundle
@@ -7,12 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.arifudesu.mvvmrestapi.R
 import com.arifudesu.mvvmrestapi.databinding.FragmentMainBinding
-import com.arifudesu.mvvmrestapi.util.isNetworkAvailable
 import com.arifudesu.mvvmrestapi.view.dashboard.DashboardActivity
 import com.jaredrummler.materialspinner.MaterialSpinner
 import com.jaredrummler.materialspinner.MaterialSpinnerAdapter

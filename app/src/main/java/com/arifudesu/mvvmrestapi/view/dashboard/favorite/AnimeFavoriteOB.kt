@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.view.dashboard.ui.favorite
+package com.arifudesu.mvvmrestapi.view.dashboard.favorite
 
 import android.widget.ImageView
 import androidx.annotation.Nullable

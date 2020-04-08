@@ -3,7 +3,6 @@ package com.arifudesu.mvvmrestapi.view.dashboard
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,7 +11,6 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -30,11 +28,11 @@ import com.arifudesu.mvvmrestapi.util.navigation.TitleMenu
 import com.arifudesu.mvvmrestapi.util.obtainAnimeFavoriteViewModel
 import com.arifudesu.mvvmrestapi.util.obtainAnimeTopViewModel
 import com.arifudesu.mvvmrestapi.util.obtainMainViewModel
-import com.arifudesu.mvvmrestapi.view.dashboard.ui.favorite.AnimeFavoriteVM
-import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.airing.AnimeTopAiringVM
-import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.upcoming.AnimeTopUpcomingVM
-import com.arifudesu.mvvmrestapi.view.main.MainUAL
-import com.arifudesu.mvvmrestapi.view.main.MainVM
+import com.arifudesu.mvvmrestapi.view.dashboard.favorite.AnimeFavoriteVM
+import com.arifudesu.mvvmrestapi.view.dashboard.top.airing.AnimeTopAiringVM
+import com.arifudesu.mvvmrestapi.view.dashboard.top.upcoming.AnimeTopUpcomingVM
+import com.arifudesu.mvvmrestapi.view.dashboard.main.MainUAL
+import com.arifudesu.mvvmrestapi.view.dashboard.main.MainVM
 import com.google.android.material.navigation.NavigationView
 import com.orhanobut.hawk.Hawk
 import java.util.*

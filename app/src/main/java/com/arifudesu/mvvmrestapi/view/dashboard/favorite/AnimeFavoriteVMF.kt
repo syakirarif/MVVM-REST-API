@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.view.dashboard.ui.favorite
+package com.arifudesu.mvvmrestapi.view.dashboard.favorite
 
 import android.app.Application
 import androidx.annotation.VisibleForTesting

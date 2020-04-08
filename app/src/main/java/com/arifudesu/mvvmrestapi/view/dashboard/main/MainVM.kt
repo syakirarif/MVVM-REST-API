@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.view.main
+package com.arifudesu.mvvmrestapi.view.dashboard.main
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.view.dashboard.ui.top
+package com.arifudesu.mvvmrestapi.view.dashboard.top
 
 import android.app.Application
 import androidx.annotation.VisibleForTesting
@@ -6,8 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.arifudesu.mvvmrestapi.data_source.top.AnimeTopRepository
 import com.arifudesu.mvvmrestapi.util.Injection
-import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.airing.AnimeTopAiringVM
-import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.upcoming.AnimeTopUpcomingVM
+import com.arifudesu.mvvmrestapi.view.dashboard.top.airing.AnimeTopAiringVM
+import com.arifudesu.mvvmrestapi.view.dashboard.top.upcoming.AnimeTopUpcomingVM
 
 class AnimeTopVMF(
     private val application: Application,

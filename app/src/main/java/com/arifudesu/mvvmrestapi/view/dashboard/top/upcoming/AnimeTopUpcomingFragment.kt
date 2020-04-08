@@ -1,4 +1,4 @@
-package com.arifudesu.mvvmrestapi.view.dashboard.ui.top.upcoming
+package com.arifudesu.mvvmrestapi.view.dashboard.top.upcoming
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.arifudesu.mvvmrestapi.R
 import com.arifudesu.mvvmrestapi.databinding.FragmentAnimeTopUpcomingBinding
 import com.arifudesu.mvvmrestapi.view.dashboard.DashboardActivity
-import com.arifudesu.mvvmrestapi.view.dashboard.ui.top.airing.AnimeTopAiringFragment
+import com.arifudesu.mvvmrestapi.view.dashboard.top.airing.AnimeTopAiringFragment
 import com.orhanobut.hawk.Hawk
 
 /**
