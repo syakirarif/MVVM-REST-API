@@ -18,6 +18,10 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
         <activity
+            android:name=".view.detail.DetailActivity"
+            android:theme="@style/AppTheme2.NoActionBar"
+            android:parentActivityName=".view.dashboard.DashboardActivity"/>
+        <activity
             android:name=".view.dashboard.DashboardActivity"
             android:theme="@style/AppTheme2.NoActionBar">
             <intent-filter>

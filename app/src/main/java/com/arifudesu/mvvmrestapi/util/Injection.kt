@@ -1,6 +1,9 @@
 package com.arifudesu.mvvmrestapi.util
 
 import android.content.Context
+import com.arifudesu.mvvmrestapi.data_source.detail.DetailAnimeLDS
+import com.arifudesu.mvvmrestapi.data_source.detail.DetailAnimeRDS
+import com.arifudesu.mvvmrestapi.data_source.detail.DetailAnimeRepository
 import com.arifudesu.mvvmrestapi.data_source.favorite.AnimeFavoriteLDS
 import com.arifudesu.mvvmrestapi.data_source.favorite.AnimeFavoriteRepository
 import com.arifudesu.mvvmrestapi.data_source.season.AnimeSeasonLDS
@@ -37,6 +40,15 @@ object Injection {
 
         return AnimeFavoriteRepository.getInstance(
             AnimeFavoriteLDS.getInstance(AppExecutors(), localDatabase.animeDao())
+        )
+    }
+
+    fun provideDetailAnimeRepository(context: Context): DetailAnimeRepository {
+        val localDatabase = AnimeDatabase.invoke(context)
+
+        return DetailAnimeRepository.getInstance(
+            DetailAnimeRDS,
+            DetailAnimeLDS.getInstance(AppExecutors(), localDatabase.animeDao())
         )
     }
 }

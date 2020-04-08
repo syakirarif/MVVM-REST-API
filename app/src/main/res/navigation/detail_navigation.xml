@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detail_navigation"
+    app:startDestination="@id/detailAnimeFragment">
+
+    <fragment
+        android:id="@+id/detailAnimeFragment"
+        android:name="com.arifudesu.mvvmrestapi.view.detail.DetailAnimeFragment"
+        android:label="DetailAnimeFragment"
+        tools:layout="@layout/fragment_detail_anime" />
+</navigation>

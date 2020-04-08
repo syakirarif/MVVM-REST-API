@@ -1,5 +1,6 @@
 package com.arifudesu.mvvmrestapi.view.dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -33,6 +34,7 @@ import com.arifudesu.mvvmrestapi.view.dashboard.main.MainUAL
 import com.arifudesu.mvvmrestapi.view.dashboard.main.MainVM
 import com.arifudesu.mvvmrestapi.view.dashboard.top.airing.AnimeTopAiringVM
 import com.arifudesu.mvvmrestapi.view.dashboard.top.upcoming.AnimeTopUpcomingVM
+import com.arifudesu.mvvmrestapi.view.detail.DetailActivity
 import com.google.android.material.navigation.NavigationView
 import com.orhanobut.hawk.Hawk
 import java.util.*
@@ -89,7 +91,8 @@ class DashboardActivity : AppCompatActivity(), MainUAL, NavMenuAdapter.MenuItemC
 
     fun obtainViewModel(): MainVM = obtainMainViewModel(MainVM::class.java)
 
-    fun obtainsAnimeFavoriteVM(): AnimeFavoriteVM = obtainAnimeFavoriteViewModel(AnimeFavoriteVM::class.java)
+    fun obtainsAnimeFavoriteVM(): AnimeFavoriteVM =
+        obtainAnimeFavoriteViewModel(AnimeFavoriteVM::class.java)
 
     fun obtainsAnimeTopVM(): AnimeTopAiringVM = obtainAnimeTopViewModel(
         AnimeTopAiringVM::class.java
@@ -111,7 +114,11 @@ class DashboardActivity : AppCompatActivity(), MainUAL, NavMenuAdapter.MenuItemC
     }
 
     override fun onClickItem(entry: AnimeEntry) {
-        Toast.makeText(this, "${entry.title}", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(this, "${entry.title}", Toast.LENGTH_SHORT).show()
+        Hawk.put("SELECTED_ANIME_MAL_ID", entry.malId.toString())
+        Log.e("DetailAnimeFragment", "MAL_ID: ${entry.malId}")
+        val intent = Intent(this, DetailActivity::class.java)
+        startActivity(intent)
     }
 
 //    override fun onClickFavorite(entry: AnimeEntry) {

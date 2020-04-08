@@ -9,6 +9,7 @@ import com.arifudesu.mvvmrestapi.model.AnimeEntry
 import com.arifudesu.mvvmrestapi.model.AnimeFavoriteEntry
 import com.arifudesu.mvvmrestapi.model.AnimeTopEntry
 import com.arifudesu.mvvmrestapi.model.AnimeTopUpcomingEntry
+import com.arifudesu.mvvmrestapi.model.detail.DetailAnimeEntry
 import com.arifudesu.mvvmrestapi.util.DataConverter
 
 @Database(
@@ -16,7 +17,8 @@ import com.arifudesu.mvvmrestapi.util.DataConverter
         AnimeEntry::class,
         AnimeTopEntry::class,
         AnimeTopUpcomingEntry::class,
-        AnimeFavoriteEntry::class
+        AnimeFavoriteEntry::class,
+        DetailAnimeEntry::class
     ],
     version = 1,
     exportSchema = false

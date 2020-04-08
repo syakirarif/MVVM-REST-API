@@ -3,6 +3,7 @@ package com.arifudesu.mvvmrestapi.service
 import com.arifudesu.mvvmrestapi.BuildConfig
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
 import com.arifudesu.mvvmrestapi.model.AnimeTopEntry
+import com.arifudesu.mvvmrestapi.model.detail.DetailAnimeEntry
 import com.arifudesu.mvvmrestapi.service.apimodel.AnimeTopApiModel
 import io.reactivex.Observable
 import okhttp3.OkHttpClient
@@ -28,6 +29,11 @@ interface AnimeApiService {
         @Path(value = "page", encoded = true) page: String,
         @Path(value = "subtype", encoded = true) subtype: String
     ): Observable<AnimeTopApiModel<List<AnimeTopEntry>>>
+
+    @GET("anime/{mal_id}/")
+    fun getDetailAnime(
+        @Path(value = "mal_id", encoded = true) malId: String
+    ): Observable<DetailAnimeEntry>
 
     companion object {
         //        fun create(): SiakadApiService {

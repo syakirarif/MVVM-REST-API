@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.arifudesu.mvvmrestapi.view.dashboard.favorite.AnimeFavoriteVMF
 import com.arifudesu.mvvmrestapi.view.dashboard.top.AnimeTopVMF
 import com.arifudesu.mvvmrestapi.view.dashboard.main.MainVMF
+import com.arifudesu.mvvmrestapi.view.detail.DetailAnimeVMF
 import java.lang.Exception
 
 fun isNetworkAvailable(context: Context): Boolean {
@@ -65,4 +66,11 @@ fun <T : ViewModel>
     ViewModelProviders.of(
         this,
         AnimeFavoriteVMF.getInstance(application)
+    ).get(viewModelClass)
+
+fun <T : ViewModel>
+        AppCompatActivity.obtainDetailAnimeViewModel(viewModelClass: Class<T>) =
+    ViewModelProviders.of(
+        this,
+        DetailAnimeVMF.getInstance(application)
     ).get(viewModelClass)

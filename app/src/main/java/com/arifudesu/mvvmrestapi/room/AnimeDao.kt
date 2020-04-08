@@ -8,6 +8,7 @@ import com.arifudesu.mvvmrestapi.model.AnimeEntry
 import com.arifudesu.mvvmrestapi.model.AnimeFavoriteEntry
 import com.arifudesu.mvvmrestapi.model.AnimeTopEntry
 import com.arifudesu.mvvmrestapi.model.AnimeTopUpcomingEntry
+import com.arifudesu.mvvmrestapi.model.detail.DetailAnimeEntry
 
 @Dao
 interface AnimeDao {
@@ -71,6 +72,17 @@ interface AnimeDao {
 
     @Query("SELECT COUNT(malId) FROM tb_anime_favorite WHERE malId = :malId")
     fun checkAnimeFavorite(malId: String): Int
+
+    //-------------------------------------------
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertDetailAnime(entry: DetailAnimeEntry)
+
+    @Query("SELECT * FROM tb_anime_detail")
+    fun getDetailAnime(): DetailAnimeEntry
+
+    @Query("DELETE FROM tb_anime_detail")
+    fun clearTableDetailAnime()
 
 
 }
