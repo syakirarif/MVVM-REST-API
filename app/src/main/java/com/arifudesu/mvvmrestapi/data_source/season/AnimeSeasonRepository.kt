@@ -30,10 +30,15 @@ class AnimeSeasonRepository(
         localDataSource.saveAnimeSeason(entry)
     }
 
-    override fun insertAnimeFavorite(entry: AnimeEntry) {
-        localDataSource.insertAnimeFavorite(entry)
-        Log.e("AnimeSeasonRepository", "insertAnimeFavorite: ${entry}")
-    }
+//    override fun insertAnimeFavorite(entry: AnimeEntry) {
+//        localDataSource.insertAnimeFavorite(entry)
+//        Log.e("AnimeSeasonRepository", "insertAnimeFavorite: ${entry}")
+//    }
+//
+//    override fun checkAnimeFavorite(malId: String, callback: AnimeSeasonDS.GetFavoriteCallback) {
+//        localDataSource.checkAnimeFavorite(malId, callback)
+//        Log.e("AnimeSeasonRepository", "checkAnimeFavorite: ${malId}")
+//    }
 
     private fun getRemoteDataSource(
         seasonYear: String,

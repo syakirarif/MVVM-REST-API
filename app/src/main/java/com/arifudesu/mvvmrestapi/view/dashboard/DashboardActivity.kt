@@ -29,10 +29,10 @@ import com.arifudesu.mvvmrestapi.util.obtainAnimeFavoriteViewModel
 import com.arifudesu.mvvmrestapi.util.obtainAnimeTopViewModel
 import com.arifudesu.mvvmrestapi.util.obtainMainViewModel
 import com.arifudesu.mvvmrestapi.view.dashboard.favorite.AnimeFavoriteVM
-import com.arifudesu.mvvmrestapi.view.dashboard.top.airing.AnimeTopAiringVM
-import com.arifudesu.mvvmrestapi.view.dashboard.top.upcoming.AnimeTopUpcomingVM
 import com.arifudesu.mvvmrestapi.view.dashboard.main.MainUAL
 import com.arifudesu.mvvmrestapi.view.dashboard.main.MainVM
+import com.arifudesu.mvvmrestapi.view.dashboard.top.airing.AnimeTopAiringVM
+import com.arifudesu.mvvmrestapi.view.dashboard.top.upcoming.AnimeTopUpcomingVM
 import com.google.android.material.navigation.NavigationView
 import com.orhanobut.hawk.Hawk
 import java.util.*
@@ -104,9 +104,9 @@ class DashboardActivity : AppCompatActivity(), MainUAL, NavMenuAdapter.MenuItemC
             openData.observe(this@DashboardActivity, Observer { entry ->
                 onClickItem(entry!!)
             })
-            openFavorite.observe(this@DashboardActivity, Observer { entry ->
-                onClickFavorite(entry)
-            })
+//            openFavorite.observe(this@DashboardActivity, Observer { entry ->
+//                onClickFavorite(entry)
+//            })
         }
     }
 
@@ -114,10 +114,10 @@ class DashboardActivity : AppCompatActivity(), MainUAL, NavMenuAdapter.MenuItemC
         Toast.makeText(this, "${entry.title}", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onClickFavorite(entry: AnimeEntry) {
-        Toast.makeText(this, "Favorite: ${entry.malId}", Toast.LENGTH_SHORT).show()
-        viewModel.insertAnimeFavorite(entry)
-    }
+//    override fun onClickFavorite(entry: AnimeEntry) {
+//        Toast.makeText(this, "Favorite: ${entry.malId}", Toast.LENGTH_SHORT).show()
+//        viewModel.insertAnimeFavorite(entry)
+//    }
 
     override fun onMenuItemClick(itemString: String?) {
         for (i in menu.indices) {

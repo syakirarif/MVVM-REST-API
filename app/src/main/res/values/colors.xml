@@ -4,6 +4,18 @@
     <color name="colorPrimaryDark">#008e76</color>
     <color name="colorAccent">#5df2d6</color>
 
+<!--    <color name="colorPrimary2">#ebb624</color>-->
+<!--    <color name="colorPrimaryDark2">#fe7e0b</color>-->
+<!--    <color name="colorAccent2">#ffc777</color>-->
+
+<!--    <color name="colorPrimary2">#ffb300</color>-->
+<!--    <color name="colorPrimaryDark2">#c68400</color>-->
+<!--    <color name="colorAccent2">#ffe54c</color>-->
+
+    <color name="colorPrimary2">#00838f</color>
+    <color name="colorPrimaryDark2">#005662</color>
+    <color name="colorAccent2">#4fb3bf</color>
+
     <color name="overlay_dark_10">#1A000000</color>
     <color name="overlay_dark_40">#66000000</color>
 

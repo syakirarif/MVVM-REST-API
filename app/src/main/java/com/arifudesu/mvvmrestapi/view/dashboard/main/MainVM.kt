@@ -18,9 +18,13 @@ class MainVM(
 
     val dataListLive = MutableLiveData<List<AnimeEntry>>()
     val openData = SingleLiveEvent<AnimeEntry>()
-    val openFavorite = SingleLiveEvent<AnimeEntry>()
+//    val openFavorite = SingleLiveEvent<AnimeEntry>()
 
     var showProgress = MutableLiveData<Boolean>()
+
+//    var isFavorite = MutableLiveData<Boolean>()
+
+//    private lateinit var isFavorite: Boolean
 
 //    val isLoading = ObservableField(true)
 
@@ -29,6 +33,7 @@ class MainVM(
 
     fun start(seasonYear: String, seasonName: String, isRefresh: Boolean) {
         showProgress.value = true
+//        isFavorite.value = false
         year = seasonYear
         name = seasonName
         getData(seasonYear, seasonName, isRefresh)
@@ -66,8 +71,34 @@ class MainVM(
         )
     }
 
-    fun insertAnimeFavorite(entry: AnimeEntry){
-        repository.insertAnimeFavorite(entry)
-    }
+//    fun insertAnimeFavorite(entry: AnimeEntry) {
+//        repository.insertAnimeFavorite(entry)
+//    }
+
+//    fun checkAnimeFavorite(malId: String): Boolean {
+//        var isFav: Boolean = false
+//        isFavorite.value = false
+//
+//        repository.checkAnimeFavorite(malId, object : AnimeSeasonDS.GetFavoriteCallback {
+//            override fun onLoaded(count: Int) {
+//                isFavorite.value = true
+//                Log.e("MainVM", "checkAnimeFavorite(${malId}) => ${count}")
+//                isFav = count > 0
+//            }
+//
+//            override fun onError(errorMessage: String?) {
+//                isFavorite.value = false
+//                isFav = false
+//            }
+//
+//            override fun onFinished() {
+//                isFavorite.value = false
+//                isFav = false
+//            }
+//
+//        })
+//
+//        return isFav
+//    }
 
 }

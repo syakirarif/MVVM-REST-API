@@ -13,11 +13,19 @@ interface AnimeSeasonDS {
 
     fun saveAnimeSeason(entry: List<AnimeEntry>)
 
-    fun insertAnimeFavorite(entry: AnimeEntry)
+//    fun insertAnimeFavorite(entry: AnimeEntry)
+
+//    fun checkAnimeFavorite(malId: String, callback: GetFavoriteCallback)
 
     interface GetCallback {
         fun onLoaded(entry: List<AnimeEntry>)
         fun onError(errorMessage: String?)
         fun onFinished()
     }
+
+//    interface GetFavoriteCallback {
+//        fun onLoaded(count: Int)
+//        fun onError(errorMessage: String?)
+//        fun onFinished()
+//    }
 }

@@ -1,11 +1,11 @@
 package com.arifudesu.mvvmrestapi.view.dashboard.main
 
-import android.view.ViewGroup
 import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.arifudesu.mvvmrestapi.databinding.ItemMainBinding
 import com.arifudesu.mvvmrestapi.R
+import com.arifudesu.mvvmrestapi.databinding.ItemMainBinding
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
 
 class MainAdapter(
@@ -27,27 +27,17 @@ class MainAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-//        val datas = mList[position]
-
         val actionListener = object : MainUAL {
             override fun onClickItem(entry: AnimeEntry) {
                 mViewModel.openData.value = entry
-//                Toast.makeText(holder.itemView.context, "${entry.title}", Toast.LENGTH_SHORT).show()
-//                mViewModel.insertAnimeFavorite(entry)
             }
 
-            override fun onClickFavorite(entry: AnimeEntry) {
-                mViewModel.openFavorite.value = entry
-//                Toast.makeText(
-//                    holder.itemView.context,
-//                    "Favorite ${entry.malId}",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-
-            }
+//            override fun onClickFavorite(entry: AnimeEntry) {
+//                mViewModel.openFavorite.value = entry
+//            }
         }
 
-        (holder as MainHolder).bind(mList[position], actionListener)
+        (holder as MainHolder).bind(mList[position], actionListener, mViewModel)
     }
 
 
@@ -67,7 +57,7 @@ class MainAdapter(
 
         val mBinding = binding
 
-        fun bind(data: AnimeEntry, listener: MainUAL) {
+        fun bind(data: AnimeEntry, listener: MainUAL, mViewModel: MainVM) {
             mBinding.datas = data
             mBinding.action = listener
             mBinding.executePendingBindings()

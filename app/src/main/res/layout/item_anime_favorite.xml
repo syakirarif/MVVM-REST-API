@@ -83,18 +83,6 @@
 
         </com.balysv.materialripple.MaterialRippleLayout>
 
-        <ImageView
-            android:id="@+id/btn_item_main_fav_top"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:clickable="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="16dp"
-            android:onClick="@{() -> action.onClickFavoriteButton(datas)}"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/ic_favorite_border" />
-
     </RelativeLayout>
 
 </layout>

@@ -1,9 +1,7 @@
 package com.arifudesu.mvvmrestapi.data_source.season
 
-import android.util.Log
 import androidx.annotation.VisibleForTesting
 import com.arifudesu.mvvmrestapi.model.AnimeEntry
-import com.arifudesu.mvvmrestapi.model.AnimeFavoriteEntry
 import com.arifudesu.mvvmrestapi.room.AnimeDao
 import com.arifudesu.mvvmrestapi.util.dbhelper.AppExecutors
 
@@ -39,20 +37,35 @@ class AnimeSeasonLDS private constructor(
 
     }
 
-    override fun insertAnimeFavorite(entry: AnimeEntry) {
-
-        val data = AnimeFavoriteEntry(
-            entry.id,
-            entry.malId,
-            entry.title,
-            entry.url,
-            entry.imageUrl,
-            entry.type
-        )
-
-        dataDao.insertAnimeFavorite(data)
-        Log.e("AnimeSeasonLDS", "insertAnimeFavorite => ${data}")
-    }
+//    override fun insertAnimeFavorite(entry: AnimeEntry) {
+//
+//        val data = AnimeFavoriteEntry(
+//            entry.id,
+//            entry.malId,
+//            entry.title,
+//            entry.url,
+//            entry.imageUrl,
+//            entry.type
+//        )
+//
+//        dataDao.insertAnimeFavorite(data)
+//        Log.e("AnimeSeasonLDS", "insertAnimeFavorite => ${data}")
+//    }
+//
+//    override fun checkAnimeFavorite(malId: String, callback: AnimeSeasonDS.GetFavoriteCallback) {
+//        appExecutors.diskIO.execute {
+//            val getDao = dataDao.checkAnimeFavorite(malId)
+//
+//            appExecutors.mainThread.execute {
+//                if (getDao.equals(null)) {
+//                    callback.onError("Data kosong")
+//                } else {
+//                    callback.onLoaded(getDao)
+//                }
+//
+//            }
+//        }
+//    }
 
     companion object {
         private var INSTANCE: AnimeSeasonLDS? = null

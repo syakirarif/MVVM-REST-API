@@ -13,8 +13,8 @@
             type="com.arifudesu.mvvmrestapi.view.dashboard.main.MainUAL" />
 
         <variable
-            name="viewModelFavorite"
-            type="com.arifudesu.mvvmrestapi.view.dashboard.favorite.AnimeFavoriteVM" />
+            name="viewModel"
+            type="com.arifudesu.mvvmrestapi.view.dashboard.main.MainVM" />
 
 
     </data>
@@ -66,39 +66,24 @@
                         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                         android:textColor="@android:color/white" />
 
-                    <View
-                        android:layout_width="@dimen/spacing_large"
-                        android:layout_height="0dp"
-                        android:visibility="gone"/>
-
-                    <ImageView
-                        android:id="@+id/btn_item_main_fav"
-                        android:layout_width="32dp"
-                        android:layout_height="32dp"
-                        android:clickable="true"
-                        android:visibility="gone"
-                        android:src="@drawable/ic_favorite_border"
-                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                        android:textColor="@android:color/white"
-                        android:tint="@android:color/white" />
-
                 </LinearLayout>
 
             </RelativeLayout>
 
         </com.balysv.materialripple.MaterialRippleLayout>
 
-        <ImageView
-            android:id="@+id/btn_item_main_fav_top"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:clickable="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
-            android:onClick="@{() -> action.onClickFavorite(datas)}"
-            android:src="@drawable/ic_favorite_border" />
+<!--        <ImageView-->
+<!--            android:id="@+id/btn_item_main_fav_top"-->
+<!--            android:layout_width="32dp"-->
+<!--            android:layout_height="32dp"-->
+<!--            android:clickable="true"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:layout_marginRight="16dp"-->
+<!--            android:visibility="gone"-->
+<!--            android:src="@{viewModel.checkAnimeFavorite(datas.malId.toString()) ? @drawable/ic_favorite : @drawable/ic_favorite_border}"-->
+<!--            android:onClick="@{() -> action.onClickFavorite(datas)}" />-->
 
     </RelativeLayout>
 

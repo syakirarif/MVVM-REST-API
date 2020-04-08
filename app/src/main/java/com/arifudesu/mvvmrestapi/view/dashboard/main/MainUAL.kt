@@ -7,6 +7,6 @@ interface MainUAL {
 
     fun onClickItem(entry: AnimeEntry)
 
-    fun onClickFavorite(entry: AnimeEntry)
+//    fun onClickFavorite(entry: AnimeEntry)
 
 }

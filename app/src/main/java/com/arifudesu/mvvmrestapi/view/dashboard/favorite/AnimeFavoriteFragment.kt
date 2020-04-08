@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.observe
 import androidx.recyclerview.widget.GridLayoutManager
 import com.arifudesu.mvvmrestapi.R
 import com.arifudesu.mvvmrestapi.databinding.FragmentAnimeFavoriteBinding
@@ -42,7 +43,14 @@ class AnimeFavoriteFragment : Fragment() {
         }
 
         itemString = getString(R.string.title_favorite_anime)
+        subscribeUi()
         return viewBinding.root
+    }
+
+    private fun subscribeUi() {
+        viewBinding.viewModel?.dataListLive?.observe(viewLifecycleOwner) { result ->
+            viewBinding.hasFavorites = !result.isNotEmpty()
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -64,6 +72,7 @@ class AnimeFavoriteFragment : Fragment() {
         super.onResume()
 
         viewBinding.viewModel?.getAnimeFavorite()
+
     }
 
     override fun onPause() {

@@ -40,7 +40,11 @@ object AnimeSeasonRDS :
 
     }
 
-    override fun insertAnimeFavorite(entry: AnimeEntry) {
-
-    }
+//    override fun insertAnimeFavorite(entry: AnimeEntry) {
+//
+//    }
+//
+//    override fun checkAnimeFavorite(malId: String, callback: AnimeSeasonDS.GetFavoriteCallback) {
+//
+//    }
 }

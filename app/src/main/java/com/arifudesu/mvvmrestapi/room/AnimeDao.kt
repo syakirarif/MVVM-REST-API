@@ -69,5 +69,8 @@ interface AnimeDao {
     @Query("DELETE FROM tb_anime_favorite WHERE malId = :malId")
     fun removeAnimeFavorite(malId: String)
 
+    @Query("SELECT COUNT(malId) FROM tb_anime_favorite WHERE malId = :malId")
+    fun checkAnimeFavorite(malId: String): Int
+
 
 }
