@@ -1,12 +1,14 @@
 package com.arifudesu.mvvmrestapi.view.detail
 
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.observe
 import androidx.navigation.findNavController
@@ -17,11 +19,19 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.orhanobut.hawk.Hawk
+import java.lang.StringBuilder
 
 
 class DetailAnimeFragment : Fragment() {
 
     private lateinit var viewBinding: FragmentDetailAnimeBinding
+
+    private var playWhenReady = true
+    private var currentWindow: Int = 0
+    private var playbackPosition: Long = 0
+
+    private var link: String = ""
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,7 +65,21 @@ class DetailAnimeFragment : Fragment() {
 
     private fun subscribeUi() {
         viewBinding.viewModel!!.entries.observe(viewLifecycleOwner) { result ->
+            link = result.trailerUrl.toString()
+
+            if (result == null)
+                viewBinding.tvDetailTitle.text = getString(R.string.loading)
+
+            viewBinding.btnTrailer.visibility = View.VISIBLE
+            viewBinding.btnTrailer.setOnClickListener {
+                requireActivity().startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)))
+            }
+
             viewBinding.tvDetailTitle.text = result.title
+            viewBinding.tvDetailTitleSynonyms.text = StringBuilder(result.titleJapanese + "\n" + result.titleEnglish)
+            viewBinding.tvDetailSynopsis.text = result.synopsis
+            viewBinding.tvDetailPremiered.text = result.premiered
+            viewBinding.tvDetailStatus.text = StringBuilder("Status: " + result.status)
 
             val circularProgressDrawable = CircularProgressDrawable(requireContext())
             circularProgressDrawable.strokeWidth = 5f

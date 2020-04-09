@@ -1,6 +1,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fancy="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -27,7 +28,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar_layout"
             android:layout_width="match_parent"
-            android:layout_height="480dp"
+            android:layout_height="500dp"
             android:fitsSystemWindows="true"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -66,6 +67,14 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Trailer"
+                        android:id="@+id/tv_detail_premiered"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/grey_5" />
+
+                    <TextView
                         android:id="@+id/tv_detail_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -73,22 +82,45 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         android:textColor="@color/grey_3"
                         app:fontFamily="sans-serif-black"
-                        tools:text="Fusce dictum tristique elit nec iaculis" />
+                        android:text="@string/loading" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_middle"
                         android:layout_marginBottom="@dimen/spacing_middle"
+                        android:visibility="gone"
                         android:background="@android:color/white"
                         android:paddingLeft="@dimen/spacing_middle"
                         android:paddingTop="@dimen/spacing_medium"
+                        android:id="@+id/btn_watch_trailer"
                         android:paddingRight="@dimen/spacing_middle"
                         android:paddingBottom="@dimen/spacing_medium"
                         android:text="Watch Trailer"
                         android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                         android:textColor="@android:color/black" />
+
+                    <mehdi.sakout.fancybuttons.FancyButton
+                        android:id="@+id/btn_trailer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_middle"
+                        android:layout_marginBottom="@dimen/spacing_middle"
+                        android:paddingBottom="@dimen/spacing_middle"
+                        android:paddingLeft="@dimen/spacing_mlarge"
+                        android:paddingRight="@dimen/spacing_mlarge"
+                        android:paddingTop="@dimen/spacing_middle"
+                        fancy:fb_borderColor="#FFFFFF"
+                        fancy:fb_borderWidth="1dp"
+                        fancy:fb_defaultColor="#c4302b"
+                        fancy:fb_focusColor="#cc3831"
+                        android:visibility="gone"
+                        fancy:fb_fontIconResource="&#xf04b;"
+                        fancy:fb_iconPosition="left"
+                        fancy:fb_radius="30dp"
+                        fancy:fb_text="WATCH TRAILER"
+                        fancy:fb_textColor="#FFFFFF"/>
 
                 </LinearLayout>
 
@@ -127,11 +159,13 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/spacing_large"
-                    android:text="@string/lorem_ipsum_only"
+                    android:text="Trailer"
+                    android:id="@+id/tv_detail_title_synonyms"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="@color/grey_80" />
 
@@ -153,14 +187,16 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/tv_detail_status"
                     android:layout_margin="@dimen/spacing_large"
-                    android:text="@string/lorem_ipsum"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="@string/lorem_ipsum_only"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
                     android:textColor="@color/grey_80" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:id="@+id/tv_detail_synopsis"
                     android:layout_margin="@dimen/spacing_large"
                     android:text="@string/lorem_ipsum"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
