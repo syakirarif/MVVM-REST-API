@@ -48,7 +48,8 @@ object Injection {
 
         return DetailAnimeRepository.getInstance(
             DetailAnimeRDS,
-            DetailAnimeLDS.getInstance(AppExecutors(), localDatabase.animeDao())
+            DetailAnimeLDS.getInstance(AppExecutors(), localDatabase.animeDao()),
+            AnimeFavoriteLDS.getInstance(AppExecutors(), localDatabase.animeDao())
         )
     }
 }

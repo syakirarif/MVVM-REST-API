@@ -59,12 +59,16 @@ class DetailAnimeFragment : Fragment() {
 
     private fun initToolbar() {
         viewBinding.toolbar.setNavigationOnClickListener { view ->
-            view.findNavController().navigateUp()
+//            view.findNavController().navigateUp()
+            activity?.onBackPressed()
         }
     }
 
     private fun subscribeUi() {
         viewBinding.viewModel!!.entries.observe(viewLifecycleOwner) { result ->
+
+            viewBinding.datas = result
+
             link = result.trailerUrl.toString()
 
             if (result == null)
@@ -76,7 +80,8 @@ class DetailAnimeFragment : Fragment() {
             }
 
             viewBinding.tvDetailTitle.text = result.title
-            viewBinding.tvDetailTitleSynonyms.text = StringBuilder(result.titleJapanese + "\n" + result.titleEnglish)
+            viewBinding.tvDetailTitleSynonyms.text =
+                StringBuilder(result.titleJapanese + "\n" + result.titleEnglish)
             viewBinding.tvDetailSynopsis.text = result.synopsis
             viewBinding.tvDetailPremiered.text = result.premiered
             viewBinding.tvDetailStatus.text = StringBuilder("Status: " + result.status)
@@ -106,7 +111,10 @@ class DetailAnimeFragment : Fragment() {
         val malId = Hawk.get<String>("SELECTED_ANIME_MAL_ID")
         Log.e("DetailAnimeFragment", "MAL_ID: ${malId}")
         viewBinding.viewModel?.getDetailAnime(malId)
+        viewBinding.viewModel?.checkAnimeFavorite(malId)
     }
+
+
 
     companion object {
         fun newInstance() = DetailAnimeFragment().apply {

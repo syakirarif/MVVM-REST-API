@@ -1,12 +1,12 @@
 package com.arifudesu.mvvmrestapi.model
 
 import androidx.room.ColumnInfo
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "tb_anime_favorite")
 data class AnimeFavoriteEntry (
+
     @PrimaryKey(autoGenerate = true)
     val id: Int? = null,
 

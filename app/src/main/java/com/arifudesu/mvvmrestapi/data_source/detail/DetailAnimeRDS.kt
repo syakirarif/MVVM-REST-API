@@ -36,4 +36,5 @@ object DetailAnimeRDS : DetailAnimeDS {
     override fun saveDetailAnime(entry: DetailAnimeEntry) {
 
     }
+
 }

@@ -11,6 +11,10 @@ class AnimeFavoriteRepository(
         localDataSource.getAnimeFavorite(callback)
     }
 
+    override fun checkAnimeFavorite(malId: String, callback: AnimeFavoriteDS.GetCallbackFavorite) {
+        localDataSource.checkAnimeFavorite(malId, callback)
+    }
+
     override fun saveAnimeFavorite(entry: AnimeFavoriteEntry) {
         localDataSource.saveAnimeFavorite(entry)
         Log.e("AnimeFavoriteRepository", "saveAnimeFavorite => ${entry}")

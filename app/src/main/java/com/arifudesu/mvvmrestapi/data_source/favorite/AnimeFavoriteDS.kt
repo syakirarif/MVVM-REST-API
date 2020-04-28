@@ -8,11 +8,19 @@ interface AnimeFavoriteDS {
         callback: GetCallback
     )
 
+    fun checkAnimeFavorite(malId: String, callback: GetCallbackFavorite)
+
     fun saveAnimeFavorite(entry: AnimeFavoriteEntry)
 
     fun removeAnimeFavorite(malId: String)
 
     interface GetCallback {
+        fun onLoaded(entry: List<AnimeFavoriteEntry>)
+        fun onError(errorMessage: String?)
+        fun onFinished()
+    }
+
+    interface GetCallbackFavorite {
         fun onLoaded(entry: List<AnimeFavoriteEntry>)
         fun onError(errorMessage: String?)
         fun onFinished()

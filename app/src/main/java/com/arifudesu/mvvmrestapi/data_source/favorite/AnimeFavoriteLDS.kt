@@ -16,7 +16,21 @@ class AnimeFavoriteLDS private constructor(
             val getDao = dataDao.getAnimeFavorite()
 
             appExecutors.mainThread.execute {
-                if (getDao.equals(null)) {
+                if (getDao.isNullOrEmpty()) {
+                    callback.onError("Data kosong")
+                } else {
+                    callback.onLoaded(getDao)
+                }
+            }
+        }
+    }
+
+    override fun checkAnimeFavorite(malId: String, callback: AnimeFavoriteDS.GetCallbackFavorite) {
+        appExecutors.diskIO.execute {
+            val getDao = dataDao.checkAnimeFavorite(malId)
+
+            appExecutors.mainThread.execute {
+                if (getDao.isNullOrEmpty()) {
                     callback.onError("Data kosong")
                 } else {
                     callback.onLoaded(getDao)

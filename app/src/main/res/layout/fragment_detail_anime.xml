@@ -1,9 +1,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:fancy="http://schemas.android.com/apk/res-auto">
+    xmlns:fancy="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="android.view.View" />
 
         <variable
             name="viewModel"
@@ -67,10 +69,10 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_detail_premiered"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Trailer"
-                        android:id="@+id/tv_detail_premiered"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="@color/grey_5" />
 
@@ -78,28 +80,28 @@
                         android:id="@+id/tv_detail_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@string/loading"
                         android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         android:textColor="@color/grey_3"
-                        app:fontFamily="sans-serif-black"
-                        android:text="@string/loading" />
+                        app:fontFamily="sans-serif-black" />
 
                     <TextView
+                        android:id="@+id/btn_watch_trailer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_middle"
                         android:layout_marginBottom="@dimen/spacing_middle"
-                        android:visibility="gone"
                         android:background="@android:color/white"
                         android:paddingLeft="@dimen/spacing_middle"
                         android:paddingTop="@dimen/spacing_medium"
-                        android:id="@+id/btn_watch_trailer"
                         android:paddingRight="@dimen/spacing_middle"
                         android:paddingBottom="@dimen/spacing_medium"
                         android:text="Watch Trailer"
                         android:textAllCaps="true"
                         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                        android:textColor="@android:color/black" />
+                        android:textColor="@android:color/black"
+                        android:visibility="gone" />
 
                     <mehdi.sakout.fancybuttons.FancyButton
                         android:id="@+id/btn_trailer"
@@ -107,20 +109,20 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_middle"
                         android:layout_marginBottom="@dimen/spacing_middle"
-                        android:paddingBottom="@dimen/spacing_middle"
                         android:paddingLeft="@dimen/spacing_mlarge"
-                        android:paddingRight="@dimen/spacing_mlarge"
                         android:paddingTop="@dimen/spacing_middle"
+                        android:paddingRight="@dimen/spacing_mlarge"
+                        android:paddingBottom="@dimen/spacing_middle"
+                        android:visibility="gone"
                         fancy:fb_borderColor="#FFFFFF"
                         fancy:fb_borderWidth="1dp"
                         fancy:fb_defaultColor="#c4302b"
                         fancy:fb_focusColor="#cc3831"
-                        android:visibility="gone"
                         fancy:fb_fontIconResource="&#xf04b;"
                         fancy:fb_iconPosition="left"
                         fancy:fb_radius="30dp"
                         fancy:fb_text="WATCH TRAILER"
-                        fancy:fb_textColor="#FFFFFF"/>
+                        fancy:fb_textColor="#FFFFFF" />
 
                 </LinearLayout>
 
@@ -143,70 +145,92 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.core.widget.NestedScrollView
-            android:id="@+id/nested_scroll_view"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:clipToPadding="false"
-            android:fitsSystemWindows="true"
-            android:scrollbars="none"
-            android:scrollingCache="true"
+            android:orientation="vertical"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <LinearLayout
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:background="@android:color/white"
+                android:clipToPadding="false"
+                android:fitsSystemWindows="true"
+                android:scrollbars="none"
+                android:scrollingCache="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/spacing_large"
-                    android:text="Trailer"
-                    android:id="@+id/tv_detail_title_synonyms"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/grey_80" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/image_27" />
+                    <TextView
+                        android:id="@+id/tv_detail_title_synonyms"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="85dp"
+                        android:padding="@dimen/spacing_large"
+                        android:text="Trailer"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/grey_80" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:maxLines="1"
-                    android:text="Image source : pexels.com"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
-                    android:textColor="@color/grey_80" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/image_27" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_detail_status"
-                    android:layout_margin="@dimen/spacing_large"
-                    android:text="@string/lorem_ipsum_only"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@color/grey_80" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="1"
+                        android:text="Image source : pexels.com"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                        android:textColor="@color/grey_80" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_detail_synopsis"
-                    android:layout_margin="@dimen/spacing_large"
-                    android:text="@string/lorem_ipsum"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="@color/grey_80" />
+                    <TextView
+                        android:id="@+id/tv_detail_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spacing_large"
+                        android:text="@string/lorem_ipsum_only"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@color/grey_80" />
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_detail_synopsis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spacing_large"
+                        android:text="@string/lorem_ipsum"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/grey_80" />
 
-        </androidx.core.widget.NestedScrollView>
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_large"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onClickFavorite(datas)}"
+            android:src="@{viewModel.isFavorite() ? @drawable/ic_favorite : @drawable/ic_favorite_border}"
+            android:tint="@android:color/white"
+            app:backgroundTint="@color/red_A700"
+            app:fabSize="normal"
+            app:layout_anchor="@id/app_bar_layout"
+            app:layout_anchorGravity="bottom|right|end"
+            app:rippleColor="@android:color/white" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
 
 </layout>
